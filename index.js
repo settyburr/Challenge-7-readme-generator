@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 import inquirer from 'inquirer';
-import js from 'fs';
+import fs from 'fs';
+import path from 'path';
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -40,36 +41,32 @@ const questions = [
         message: 'What license is used?'
     },
 ];
-inquirer.prompt(questions)
-    .then((answers) => {
-        writeReadMe('README.md', answers);
-    });
-module.exports = questions;
+
+// module.exports = questions;
 
 // TODO: Create a function to write README file
-const fs = require('fs');
-const path = require('path');
+
 
 function writeToFile(fileName, data) {
     const readMeContent = `
-    # ${data.title}
+    # ${questions.title}
 
     ## Description
-    ${data.description}
+    ${questions.description}
 
     ## Installation
-    ${data.installation}
+    ${questions.installation}
 
     ## Usage
-    ${data.usage}
+    ${questions.usage}
 
     ## Contributions
-    ${data.contributions}
+    ${questions.contributions}
 
     ## License
-    This project uses the ${data.license} license.
+    This project uses the ${questions.license} license.
 `;
-fs.writefile(path.join(pricess.cwd(), fileName), content, (err) =>{
+fs.writeFile(path.join(process.cwd(), fileName), content, (err) =>{
         if (err) {
             console.log('Error eriting README file:', err);
         } else {
@@ -77,10 +74,15 @@ fs.writefile(path.join(pricess.cwd(), fileName), content, (err) =>{
         }
     });
 }
-module.exports = writeReadMe;
+// module.exports = writeReadMe;
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions)
+    .then((answers) => {
+        writeToFile('README.md', answers);
+    });
+}
 
 // Function call to initialize app
 init();
