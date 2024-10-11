@@ -59,8 +59,15 @@ function writeToFile(fileName, data) {
     ${data.contributions}
 
     ## License
-    This project uses the ${data.licensen} license.
+    This project uses the ${data.license} license.
 `;
+fs.writefile(path.join(pricess.cwd(), fileName), content, (err) =>{
+        if (err) {
+            console.log('Error eriting README file:', err);
+        } else {
+            console.log('README file has been generated!');
+        }
+    });
 }
 
 // TODO: Create a function to initialize app
