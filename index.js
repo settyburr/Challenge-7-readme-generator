@@ -8,7 +8,7 @@ const questions = [
     {
         type: 'input',
         name: 'title',
-        message: 'What is the title of the project',
+        message: 'What is the title of the project?',
     },
     {
         type: 'input',
@@ -49,21 +49,21 @@ const questions = [
 
 function writeToFile(fileName, data) {
     const readMeContent = `
-    # ${questions.title}
+# ${questions.title}
 
-    ## Description
+## Description
     ${questions.description}
 
-    ## Installation
+## Installation
     ${questions.installation}
 
-    ## Usage
+## Usage
     ${questions.usage}
 
-    ## Contributions
+## Contributions
     ${questions.contributions}
 
-    ## License
+## License
     This project uses the ${questions.license} license.
 `;
 fs.writeFile(path.join(process.cwd(), fileName), readMeContent, (err) =>{
