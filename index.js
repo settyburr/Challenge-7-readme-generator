@@ -66,7 +66,7 @@ function writeToFile(fileName, data) {
     ## License
     This project uses the ${questions.license} license.
 `;
-fs.writeFile(path.join(process.cwd(), fileName), content, (err) =>{
+fs.writeFile(path.join(process.cwd(), fileName), readMeContent, (err) =>{
         if (err) {
             console.log('Error eriting README file:', err);
         } else {
