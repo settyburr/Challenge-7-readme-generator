@@ -49,22 +49,22 @@ const questions = [
 
 function writeToFile(fileName, data) {
     const readMeContent = `
-# ${questions.title}
+# ${data.title}
 
 ## Description
-    ${questions.description}
+    ${data.description}
 
 ## Installation
-    ${questions.installation}
+    ${data.installation}
 
 ## Usage
-    ${questions.usage}
+    ${data.usage}
 
 ## Contributions
-    ${questions.contributions}
+    ${data.contributions}
 
 ## License
-    This project uses the ${questions.license} license.
+    This project uses the ${data.license} license.
 `;
 fs.writeFile(path.join(process.cwd(), fileName), readMeContent, (err) =>{
         if (err) {
