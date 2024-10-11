@@ -40,8 +40,16 @@ const questions = [
         message: 'What license is used?'
     },
 ];
+inquirer.prompt(questions)
+    .then((answers) => {
+        writeReadMe('README.md', answers);
+    });
+module.exports = questions;
 
 // TODO: Create a function to write README file
+const fs = require('fs');
+const path = require('path');
+
 function writeToFile(fileName, data) {
     const readMeContent = `
     # ${data.title}
@@ -69,6 +77,7 @@ fs.writefile(path.join(pricess.cwd(), fileName), content, (err) =>{
         }
     });
 }
+module.exports = writeReadMe;
 
 // TODO: Create a function to initialize app
 function init() {}
