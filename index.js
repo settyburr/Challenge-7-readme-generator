@@ -6,6 +6,11 @@ import js from 'fs';
 const questions = [
     {
         type: 'input',
+        name: 'title',
+        message: 'What is the title of the project',
+    },
+    {
+        type: 'input',
         name: 'description',
         message: 'What is the description of the application?'
     },
@@ -34,16 +39,29 @@ const questions = [
         name: 'license',
         message: 'What license is used?'
     },
-    {
-        type: 'input',
-        name: 'github',
-        message: 'What is your github username?'
-    },
-
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    const readMeContent = `
+    # ${data.title}
+
+    ## Description
+    ${data.description}
+
+    ## Installation
+    ${data.installation}
+
+    ## Usage
+    ${data.usage}
+
+    ## Contributions
+    ${data.contributions}
+
+    ## License
+    This project uses the ${data.licensen} license.
+`;
+}
 
 // TODO: Create a function to initialize app
 function init() {}
