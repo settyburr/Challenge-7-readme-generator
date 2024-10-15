@@ -18,7 +18,7 @@ const questions = [
     {
         type: 'input',
         name: 'installation',
-        messgae: 'How to install the application?',
+        message: 'How to install the application?',
     },
     {
         type: 'input',
